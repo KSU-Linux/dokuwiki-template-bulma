@@ -1,0 +1,198 @@
+/* Sidebar */
+.sidebar .content h1,
+.sidebar .content h2,
+.sidebar .content h3,
+.sidebar .content h4,
+.sidebar .content h5,
+.sidebar .content h6 {
+    padding-top: 0.8em;
+}
+
+.sidebar hr {
+	background-color: #ffffff;
+}
+
+/* Main content */
+.dw__toc {
+    float: right;
+    padding-left: 1rem;
+}
+
+.editbutton_section > .btn_secedit {
+    border: 0;
+    float: right;
+}
+
+.editbutton_table > .btn_secedit {
+    background-color: transparent;
+    border: 0;
+    margin-top: -0.4rem;
+}
+
+.section_highlight {
+/** Old settings that show highlighted area:
+  * margin-left: -1.20em;
+  * margin-right: -1.20em;
+  * margin-top: 2rem;
+  * padding-left: .5em;
+  * padding-right: .5em;
+  * border: solid #f5f5f5;
+  * border-width: 0 1em;
+  */
+    margin-top: 2rem;
+}
+
+.section_highlight:first-child {
+     margin-top: 0;
+}
+
+.secedit:last-child {
+    padding-bottom: 1rem;
+}
+
+.section_highlight > .table {
+    padding-bottom: 1.5rem;
+}
+
+.mediafile {
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAwElEQVR4AW3PPUoDURQF4O/OBHsb0yi4ByG4TUELl+Q2bMQ0Roz5IfPedRgIg+Gd037cw40U3Frq/c/ae1YkPBw2pzLk3EM+P7nXJQmrU9nm79Tv/MrPkXzky0QIrIbc5zH3Y39yk+sR7HKbryMJIUfwVkCVBkfXgMXjAqAT6BS9KxvV4AZnIEDoQUwQM4CZTMttQExz87QWode1LiRIoTKDFuraIKQALkCKMzGnyi4TtexVl6llp0QK7iyb/xTrP+DMapMFm/pGAAAAAElFTkSuQmCC) 4px 4px no-repeat;
+    padding-left: 26px;
+    padding-bottom: 4px;
+    vertical-align: bottom;
+    padding-top: 2px;
+    padding-right: 4px;
+    background-color: #f5f5f5;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.content table {
+    width: inherit;
+}
+
+a.wikilink2 {
+    color: #ff3860;
+}
+
+a.urlextern {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAABdklEQVR4AWMgAVRo1zY3rGk41rC+rqvCBCJWBpPM4WoomLHtdtuv/t9Lfk263TtrQ0t7Oj9cbzZDc/W6s/8T7khD+P+F/8bv29PZlswJVVBu0vPuVZyNYHFZbmAqE1SR0cbjXR6pjGBO58am962Ta3e3ftqy6B5LCcMasOj7gInrm9jBzI4vTX+bfjT/7/4/p/w/zFXybUmt71u4wJzGfxP/t/xvA+KaP2XnQSKVFpWPav/U/6+HKJjz++OVJUDp1n9N/+r+19QyMCz1mPC/8X/X/26Igrn3GiUeL5n/v+F/8//6/9NOMTC0hDUDefP/L4MoOL6ickVeSQ1QqAGooPdBJE/lnloge/fhixBHftFd9bLkR83/+n/1QAXVP8qX1Pyv/L/s/12f/4xQNz8s3Pa/6X/Vvzqgour/5f/r/q//f2fmLy54WP7lfJN74eMSoKIyoNFz/5/+9ar+Px9aZL3Xfjvz7aO3/96+eLvsnSVE7CPhOAYA9nvIX0UoNU8AAAAASUVORK5CYII=);
+	background-repeat: no-repeat;
+	background-position: 0 center;
+	padding: 0 0 0 18px;
+}
+
+code {
+    border-radius: 4px;
+}
+
+.code dd {
+    margin-left: 0;
+}
+
+.footnotes {
+    border-top: 1px solid #dbdbdb;
+    padding: .5em 0 0 0;
+    margin: 1em 0 0 0;
+    clear: both;
+}
+
+.fn .content {
+    padding-left: 1em;
+}
+
+.fn sup {
+    vertical-align: bottom;
+    position: relative;
+    top: 1.5em;
+}
+
+.fn {
+    margin-top: -1em;
+}
+
+/*.input, .textarea {
+	width: unset;
+}*/
+
+#dw__pagetools {
+    position: absolute;
+    right: 55px;
+    width: 1px;
+    top: 4em;
+}
+
+#dw__pagetools .buttons {
+    position: fixed;
+}
+
+#dw__pagetools .buttons .control .button a:is(:active, :focus, :hover) svg {
+	fill: #485fc7;
+}
+
+/* TOC and pagetools */
+.toc .button {
+    text-align: left;
+    min-height: 27px;
+    white-space: unset;
+    height: auto;
+    flex-direction: column;
+}
+
+/* Config */
+#config__manager fieldset {
+    background-color: transparent;
+}
+
+#config__manager .table td {
+    border: none;
+}
+
+/* User manager */
+/*input.user-search {
+    height: 24px;
+    width: 24px;
+}*/
+
+/* Edit tables */
+button.toolbutton {
+	border-radius: 2px;
+
+	font-size: .75rem;
+
+	background-color: #fff;
+	color: #363636;
+	cursor: pointer;
+	justify-content: center;
+	padding-bottom: calc(-0.5em);
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: calc(-0.5em);
+	text-align: center;
+	white-space: nowrap;
+
+    user-select: none;
+
+	-webkit-appearance: none;
+	align-items: center;
+	border: 1px solid #dbdbdb;
+	box-shadow: none;
+	display: inline-flex;
+	height: 2.5em;
+	line-height: 1.5;
+	position: relative;
+	vertical-align: top;
+
+	font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    
+    margin: 0;
+}
+
+button.toolbutton:hover {
+	border-color: #b5b5b5;
+	color: #363636;
+}
+
+.content table.htCore td, .content table th {
+	padding: unset;
+	vertical-align: top;
+}
