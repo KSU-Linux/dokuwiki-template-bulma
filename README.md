@@ -4,4 +4,4 @@ DokuWiki template based on the Bulma CSS framework.
 
 # Installation
 
-Download or clone this repository to `tpl/tpl/bulma`.
+Download or clone this repository to `lib/tpl/bulma`.
