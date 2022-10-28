@@ -82,6 +82,30 @@ function _tpl_content($prependTOC = false) {
             $label->setAttribute('class', $label->getAttribute('class') . ' checkbox');
         }
     }
+    // add proper classes to odered lists
+    foreach ($dom->getElementsByTagName('ol') as $ele) {
+        // skip if first child is null
+        if (!$ele->firstChild) continue;
+        $fc = $ele->firstChild;
+        // skip if first child is not list item
+        if (!$fc->nodeName == 'li') continue;
+        switch (substr($fc->getAttribute('class'), 5, 1)) {
+            case '1':
+                break;
+            case '2':
+                $ele->setAttribute('class', 'is-lower-alpha');
+                break;
+            case '3':
+                $ele->setAttribute('class', 'is-upper-roman');
+                break;
+            case '4':
+                $ele->setAttribute('class', 'is-upper-alpha');
+                break;
+            default:
+                $ele->setAttribute('class', 'is-lower-roman');
+                break;
+        }
+    }
     // add table class to tables
     foreach ($dom->getElementsByTagName('table') as $ele) {
         $ele->setAttribute('class', 'table inline is-bordered is-striped is-narrow is-hoverable');
@@ -91,6 +115,9 @@ function _tpl_content($prependTOC = false) {
         $div->setAttribute('class', $classes . ' table-container');
     }
     // make table headers nicer
+    foreach ($dom->getElementsByTagName('th') as $ele) {
+        $ele->setAttribute('class', 'has-background-white-ter has-text-weight-bold');
+    }
     foreach ($dom->getElementsByTagName('thead') as $ele) {
         $ele->setAttribute('class', 'has-background-white-ter has-text-weight-bold');
     }

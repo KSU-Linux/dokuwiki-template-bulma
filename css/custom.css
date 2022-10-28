@@ -66,6 +66,10 @@
     border-top-right-radius: 4px;
 }
 
+.content li ol {
+    margin-top: .25em;
+}
+
 .content table {
     width: inherit;
 }
