@@ -84,26 +84,32 @@ function _tpl_content($prependTOC = false) {
     }
     // add proper classes to odered lists
     foreach ($dom->getElementsByTagName('ol') as $ele) {
-        // skip if first child is null
-        if (!$ele->firstChild) continue;
-        $fc = $ele->firstChild;
-        // skip if first child is not list item
-        if (!$fc->nodeName == 'li') continue;
-        switch (substr($fc->getAttribute('class'), 5, 1)) {
-            case '1':
-                break;
-            case '2':
-                $ele->setAttribute('class', 'is-lower-alpha');
-                break;
-            case '3':
-                $ele->setAttribute('class', 'is-upper-roman');
-                break;
-            case '4':
-                $ele->setAttribute('class', 'is-upper-alpha');
-                break;
-            default:
-                $ele->setAttribute('class', 'is-lower-roman');
-                break;
+        foreach ($ele->childNodes as $i) {
+            // skip non DOMNode elements
+            if ($i->nodeType != 1) continue;
+            // skip non li elements
+            if ($i->nodeName != 'li') continue;
+            // apply proper class to ordered list based on what level# the
+            // first li element is
+            switch (substr($i->getAttribute('class'), 5, 1)) {
+                case '1':
+                    break;
+                case '2':
+                    $ele->setAttribute('class', 'is-lower-alpha');
+                    break;
+                case '3':
+                    $ele->setAttribute('class', 'is-upper-roman');
+                    break;
+                case '4':
+                    $ele->setAttribute('class', 'is-upper-alpha');
+                    break;
+                default:
+                    $ele->setAttribute('class', 'is-lower-roman');
+                    break;
+            }
+            // break because we only need to evaluate the very first one
+            // to get the level
+            break;
         }
     }
     // add table class to tables
