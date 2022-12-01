@@ -131,7 +131,7 @@ function _tpl_content($prependTOC = false) {
     foreach ($dom->getElementsByTagName('textarea') as $ele) {
         $ele->setAttribute('class', $ele->getAttribute('class') .' textarea');
     }
-    $html_output = $dom->saveHTML();
+    $html_output = utf8_decode($dom->saveHTML($dom->documentElement));
     Event::createAndTrigger('TPL_CONTENT_DISPLAY', $html_output, 'ptln');
 
     return !empty($html_output);
