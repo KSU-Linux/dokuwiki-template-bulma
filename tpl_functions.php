@@ -55,7 +55,8 @@ function _tpl_content($prependTOC = false) {
     $html_output = ob_get_clean();
     $libxml_errors = libxml_use_internal_errors(true);
     $dom = new DOMDocument();
-    $dom->loadHTML($html_output);
+    //$dom->loadHTML($html_output);
+    $dom->loadHTML(mb_convert_encoding($html_output, 'HTML-ENTITIES', 'UTF-8'));
     libxml_clear_errors();
     libxml_use_internal_errors($libxml_errors);
     // add button class to buttons, reset, and submit
@@ -131,7 +132,7 @@ function _tpl_content($prependTOC = false) {
     foreach ($dom->getElementsByTagName('textarea') as $ele) {
         $ele->setAttribute('class', $ele->getAttribute('class') .' textarea');
     }
-    $html_output = utf8_decode($dom->saveHTML($dom->documentElement));
+    $html_output = $dom->saveHTML($dom->documentElement);
     Event::createAndTrigger('TPL_CONTENT_DISPLAY', $html_output, 'ptln');
 
     return !empty($html_output);
@@ -208,12 +209,13 @@ function _tpl_searchform($ajax = true, $autocomplete = true) {
 function _tpl_sidebar() {
     $sb = strval(tpl_include_page($conf['sidebar'], false, true));
     $dom = new DOMDocument();
-    $dom->loadHTML($sb);
+    //$dom->loadHTML($sb);
+    $dom->loadHTML(mb_convert_encoding($sb, 'HTML-ENTITIES', 'UTF-8'));
     $uls = $dom->getElementsByTagName('ul');
     foreach ($uls as $ul) {
         $ul->setAttribute('class', 'menu-list');
     }
-    echo utf8_decode($dom->saveHTML($dom->documentElement));
+    echo $dom->saveHTML($dom->documentElement);
 }
 
 /**
@@ -222,7 +224,8 @@ function _tpl_sidebar() {
 function _tpl_toc() {
     $t = strval(tpl_toc(true));
     $dom = new DOMDocument();
-    $dom->loadHTML($t);
+    //$dom->loadHTML($t);
+    $dom->loadHTML(mb_convert_encoding($t, 'HTML-ENTITIES', 'UTF-8'));
     $dw__toc = $dom->getElementById('dw__toc');
     $dw__toc->setAttribute('id', 'bulma-toc');
     $dw__toc->setAttribute('class', 'is-size-7');
@@ -244,7 +247,7 @@ function _tpl_toc() {
     foreach ($as as $a) {
         $a->setAttribute('class', 'button is-light is-small');
     }
-    echo utf8_decode($dom->saveHTML($dom->documentElement));
+    echo $dom->saveHTML($dom->documentElement);
 }
 
 /**
