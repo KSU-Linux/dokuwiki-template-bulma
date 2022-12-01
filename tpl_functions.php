@@ -213,7 +213,7 @@ function _tpl_sidebar() {
     foreach ($uls as $ul) {
         $ul->setAttribute('class', 'menu-list');
     }
-    echo $dom->saveHTML();
+    echo utf8_decode($dom->saveHTML($dom->documentElement));
 }
 
 /**
@@ -244,7 +244,7 @@ function _tpl_toc() {
     foreach ($as as $a) {
         $a->setAttribute('class', 'button is-light is-small');
     }
-    echo $dom->saveHTML();
+    echo utf8_decode($dom->saveHTML($dom->documentElement));
 }
 
 /**
