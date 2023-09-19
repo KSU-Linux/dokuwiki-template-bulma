@@ -71,17 +71,33 @@ function _tpl_content($prependTOC = false) {
     }
     // add select class to selects
     foreach ($dom->getElementsByTagName('select') as $ele) {
+        // skip a select on the acl page because it looks weird
+        $name = $ele->getAttribute('name');
+        if ($name == 'acl_t') continue;
         $ele->parentNode->setAttribute('class', 'select is-small');
     }
-    // add input and checkbox classes
+    // add checkbox, radio, and input classes
     foreach ($dom->getElementsByTagName('input') as $ele) {
         $type = $ele->getAttribute('type');
-        if ($type != 'checkbox') {
-            $ele->setAttribute('class', $ele->getAttribute('class') . ' input is-small');
-        } else {
-            $label = $ele->parentNode;
-            $label->setAttribute('class', $label->getAttribute('class') . ' checkbox');
+        switch ($type) {
+            case 'checkbox':
+                $label = $ele->parentNode;
+                $label->setAttribute('class', $label->getAttribute('class') . ' checkbox');
+                break;
+            case 'radio':
+                $label = $ele->parentNode;
+                $label->setAttribute('class', $label->getAttribute('class') . ' radio');
+                break;
+            default:
+                $ele->setAttribute('class', $ele->getAttribute('class') . ' input is-small');
+                break;
         }
+        //if ($type != 'checkbox') {
+        //    $ele->setAttribute('class', $ele->getAttribute('class') . ' input is-small');
+        //} else {
+        //    $label = $ele->parentNode;
+        //    $label->setAttribute('class', $label->getAttribute('class') . ' checkbox');
+        //}
     }
     // add proper classes to odered lists
     foreach ($dom->getElementsByTagName('ol') as $ele) {
