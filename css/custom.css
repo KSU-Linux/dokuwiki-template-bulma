@@ -66,8 +66,17 @@
     border-top-right-radius: 4px;
 }
 
+.content em:not(.u) {
+    font-style: italic;
+}
+
 .content li ol {
     margin-top: .25em;
+}
+
+.content sup {
+    vertical-align: super;
+    padding-left: 0.1rem;
 }
 
 .content table {
