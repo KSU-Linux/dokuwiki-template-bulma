@@ -13,7 +13,7 @@
 
 
 var bulma = {
-    init: function () {
+    init: function() {
         // TOC changes
         //var $dw__toc = jQuery('#dw__toc');
         //$dw__toc.addClass('menu');
@@ -25,7 +25,7 @@ var bulma = {
         //$bulma-content.find('submit, button, reset').addClass('button is-small');
         //$bulma-content.find('table').not('.htCore').addClass('table is-bordered is-striped is-narrow is-hoverable');
         //$bulma-content.find('table thead tr').addClass('has-background-white-ter');
-        $dokuwiki__content.find('div.editbutton_table').css({'margin-top': '0'});
+        $dokuwiki__content.find('div.section_highlight_wrapper').addClass('section_highlight_nowrapper').removeClass('section_highlight_wrapper');
 
         // ACL changes
         //var $acl__user = jQuery('#acl__user');
@@ -60,4 +60,4 @@ var bulma = {
     },
 };
 
-//jQuery(bulma.init);
+jQuery(bulma.init);
