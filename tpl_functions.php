@@ -137,9 +137,22 @@ function _tpl_content($prependTOC = false) {
         $classes = $div->getAttribute('class');
         $div->setAttribute('class', $classes . ' table-container');
     }
-    // make table headers nicer
+    // fix centered table data
+    foreach ($dom->getElementsByTagName('td') as $ele) {
+        $classes = $ele->getAttribute('class');
+        $classes = str_replace('centeralign', 'has-text-centered', $classes);
+        $classes = str_replace('leftalign', 'has-text-left', $classes);
+        $classes = str_replace('rightalign', 'has-text-right', $classes);
+        $ele->setAttribute('class', $classes);
+    }
+    // fix centered table data and make table headers nicer
     foreach ($dom->getElementsByTagName('th') as $ele) {
-        $ele->setAttribute('class', 'has-background-white-ter has-text-weight-bold');
+        $classes = $ele->getAttribute('class');
+        $classes = $classes . ' has-background-white-ter has-text-weight-bold';
+        $classes = str_replace('centeralign', 'has-text-centered', $classes);
+        $classes = str_replace('leftalign', 'has-text-left', $classes);
+        $classes = str_replace('rightalign', 'has-text-right', $classes);
+        $ele->setAttribute('class', $classes);
     }
     foreach ($dom->getElementsByTagName('thead') as $ele) {
         $ele->setAttribute('class', 'has-background-white-ter has-text-weight-bold');
