@@ -1,7 +1,7 @@
 base     bulma
 author   Gilberto Miralla-Flores
 email    miralgj ~at~ gmail.com
-date     2024-07-23
+date     2024-09-20
 name     Bulma
 desc     Template based on Bulma CSS framework
 url      https://github.com/KSU-Linux/dokuwiki-template-bulma
