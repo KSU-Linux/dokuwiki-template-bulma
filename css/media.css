@@ -1,0 +1,962 @@
+/**
+ * This file provides the styles for the file uploader
+ * used in the media manager (both fullscreen and popup).
+ */
+
+.qq-uploader {
+    position: relative;
+    width: 100%;
+}
+
+.qq-uploader .error {
+    color: #f00;
+    background-color: #fff;
+}
+
+/* select file button */
+
+.qq-upload-button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 100%;
+    cursor: pointer;
+    margin: 1px 1px 5px;
+}
+
+.qq-upload-button {
+    color: #333;
+    background-color: #eee;
+    background-image: url(data:image/svg+xml;base64,                                                                                  PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+                      PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+                                                                              PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: .1em .5em;
+    cursor: pointer;
+}
+
+.qq-upload-button:hover {
+    border-color: #999;
+    background-color: #ddd;
+    background-image:url(data:image/svg+xml;base64,                                                                                   PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+                      PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+                                                                              PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
+}
+
+.qq-upload-button-focus {
+    outline: 1px dotted;
+}
+
+/* drop area */
+
+.qq-upload-drop-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 70px;
+    z-index: 2;
+    background: @ini_background_neu;
+    color: @ini_text;
+    text-align: center;
+}
+
+.qq-upload-drop-area span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -8px;
+    font-size: 120%;
+}
+
+.qq-upload-drop-area-active {
+    background: @ini_background_alt;
+}
+
+/* list of files to upload */
+
+div.qq-uploader ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.qq-uploader li {
+    margin: 0 0 5px;
+    color: @ini_text;
+}
+
+.qq-uploader li span,
+.qq-uploader li input,
+.qq-uploader li a {
+    margin-right: 5px;
+}
+
+.qq-upload-file {
+    display: block;
+    font-weight: bold;
+}
+
+.qq-upload-spinner {
+    display: inline-block;
+    background: url("../../images/throbber.gif");
+    width: 15px;
+    height: 15px;
+    vertical-align: text-bottom;
+}
+
+.qq-upload-size,
+.qq-upload-cancel {
+    font-size: 85%;
+}
+
+.qq-upload-failed-text {
+    display: none;
+}
+.qq-upload-fail .qq-upload-failed-text {
+    display: inline;
+}
+
+.qq-action-container * {
+    vertical-align: middle;
+}
+.qq-overwrite-check input {
+    margin-left: 10px;
+}
+
+/**
+ * This file provides the styles for the fullscreen media manager
+ * (?do=media).
+ *
+ * What most templates would probably need to change (depending on
+ * their site width) are the 4 min-width's (search for @change).
+ */
+
+
+/*____________ structure ____________*/
+
+#mediamanager__page h1 {
+    margin-bottom: .5em;
+}
+
+#mediamanager__page {
+    /* min-width must be summary of all 3 panels' min-widths */
+    min-width: 50em; /* @change */
+    width: 100%;
+    text-align: left;
+}
+[dir=rtl] #mediamanager__page {
+    text-align: right;
+}
+#mediamanager__page .panel {
+    float: left;
+}
+[dir=rtl] #mediamanager__page .panel {
+    float: right;
+}
+
+#mediamanager__page .namespaces {
+    width: 20%;
+    min-width: 10em; /* @change */
+    left:0 !important; /* overrules jQuery UI resizable in rtl */
+}
+#mediamanager__page .filelist {
+    width: 50%;
+    min-width: 25em; /* @change */
+    left:0 !important; /* overrules jQuery UI resizable in rtl */
+}
+#mediamanager__page .file {
+    width: 30%;
+    min-width: 15em; /* @change */
+}
+
+#mediamanager__page .tabs li {
+    white-space: nowrap;
+}
+
+#mediamanager__page .panelHeader {
+    background-color: #eee;
+    margin: 0 10px 10px 0;
+    padding: 10px 10px 8px;
+    text-align: left;
+    min-height: 20px;
+    overflow: hidden;
+}
+[dir=rtl] #mediamanager__page .panelHeader {
+    text-align: right;
+    margin: 0 0 10px 10px;
+}
+#mediamanager__page .panelContent {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0 10px 10px 0;
+    position: relative;
+}
+[dir=rtl] #mediamanager__page .panelContent {
+    text-align: right;
+    margin: 0 0 10px 10px;
+}
+
+#mediamanager__page .file .panelHeader,
+#mediamanager__page .file .panelContent {
+    margin-right: 0;
+}
+[dir=rtl] #mediamanager__page .file .panelHeader,
+[dir=rtl] #mediamanager__page .file .panelContent {
+    margin-left: 0;
+}
+
+#mediamanager__page .ui-resizable-e {
+    width: 6px;
+    right: 2px;
+    background: transparent url(../../images/resizecol.png) center center no-repeat;
+}
+#mediamanager__page .ui-resizable-e:hover {
+    background-color: #eee;
+}
+[dir=rtl] #mediamanager__page .ui-resizable-w {
+    width: 6px;
+    left: 2px;
+    background: transparent url(../../images/resizecol.png) center center no-repeat;
+}
+[dir=rtl] #mediamanager__page .ui-resizable-w:hover {
+    background-color: #eee;
+}
+
+
+#mediamanager__page dd {
+    margin: 0;
+}
+
+#mediamanager__page .panelHeader h3 {
+    float: left;
+    font-weight: normal;
+    font-size: 1em;
+    padding: 0;
+    margin: 0 0 3px;
+}
+[dir=rtl] #mediamanager__page .panelHeader h3 {
+    float : right
+}
+
+
+/*____________ namespaces panel ____________*/
+
+[dir=rtl] #mediamanager__page .namespaces {
+    text-align: right;
+}
+
+/* make it look like a tab (as in _tabs.css) */
+#mediamanager__page .namespaces h2 {
+    font-size: 1em;
+    display: inline-block;
+    padding: .3em .8em;
+    margin: 0 0 0 .3em;
+    border-radius: .5em .5em 0 0;
+    font-weight: normal;
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ccc;
+    border-bottom-color: #eee;
+    line-height: 1.4em;
+    position: relative;
+    bottom: -1px;
+    z-index: 2;
+}
+[dir=rtl] #mediamanager__page .namespaces h2 {
+    margin: 0 .3em 0 0;
+    position: relative;
+    right: 10px;
+}
+#mediamanager__page .namespaces .panelHeader {
+    border-top: 1px solid #ccc;
+    z-index: 1;
+}
+
+#mediamanager__page .namespaces ul {
+    margin-left: .2em;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+}
+[dir=rtl] #mediamanager__page .namespaces ul {
+    margin-left: 0;
+    margin-right: .2em;
+}
+#mediamanager__page .namespaces ul ul {
+    margin-left: 1em;
+}
+[dir=rtl] #mediamanager__page .namespaces ul ul {
+    margin-left: 0;
+    margin-right: 1em;
+}
+#mediamanager__page .namespaces ul ul li {
+    margin: 0;
+}
+
+#mediamanager__page .namespaces ul .selected {
+    background-color: #ff9;
+    font-weight: bold;
+}
+
+
+/*____________ file list panel ____________*/
+
+/* file list header */
+
+#mediamanager__page .panelHeader form.options {
+    float: right;
+    margin-top: -3px;
+}
+[dir=rtl] #mediamanager__page .panelHeader form.options {
+    float : left
+}
+#mediamanager__page .panelHeader ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#mediamanager__page .panelHeader ul li {
+    color: #333;
+    float: left;
+    line-height: 1;
+    padding-left: 3px;
+}
+[dir=rtl] #mediamanager__page .panelHeader ul li {
+    padding-right: 3px;
+    padding-left: 0;
+    float: right;
+}
+
+#mediamanager__page .panelHeader ul li.ui-controlgroup-horizontal {
+    padding-left: 30px;
+    margin: 0 0 0 5px;
+}
+#mediamanager__page .panelHeader ul li.listType {
+    background: url('../../images/icon-list.png') 3px 1px no-repeat;
+}
+#mediamanager__page .panelHeader ul li.sortBy {
+    background: url('../../images/icon-sort.png') 3px 1px no-repeat;
+}
+[dir=rtl] #mediamanager__page .panelHeader ul li.ui-controlgroup-horizontal {
+    padding-left: 0;
+    padding-right: 30px;
+    margin: 0 5px 0 0;
+    background-position: right 1px;
+}
+
+#mediamanager__page .panelHeader form.options .ui-controlgroup-horizontal label{
+    font-size: 90%;
+    margin-right: -0.4em;
+    padding: .3em .5em;
+    line-height: 1;
+}
+
+/* file list content */
+
+#mediamanager__page .filelist ul {
+    padding: 0;
+    margin: 0 10px 0 0;
+}
+[dir=rtl] #mediamanager__page .filelist ul {
+    margin: 0 0 0 10px;
+}
+#mediamanager__page .filelist ul.rows {
+    margin: 0;
+}
+#mediamanager__page .filelist .panelContent ul li:hover {
+    background-color: #eee;
+}
+
+#mediamanager__page .filelist li dt a {
+    vertical-align: middle;
+    display: table-cell;
+    overflow: hidden;
+}
+
+/* file list as thumbs */
+
+#mediamanager__page .filelist .thumbs li {
+    width: 100px;
+    min-height: 130px;
+    display: inline-block;
+    /* the right margin should visually be 10px, but because of its inline-block nature the whitespace inbetween is about 4px more */
+    margin: 0 6px 10px 0;
+    background-color: #fff_neu;
+    color: #333;
+    padding: 5px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+    line-height: 1.2;
+}
+[dir=rtl] #mediamanager__page .filelist .thumbs li {
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+#mediamanager__page .filelist .thumbs li dt a {
+    width: 100px;
+    height: 90px;
+}
+
+#mediamanager__page .filelist .thumbs li dt a img {
+    max-width: 90px;
+    max-height: 90px;
+}
+
+#mediamanager__page .filelist .thumbs li .name,
+#mediamanager__page .filelist .thumbs li .size,
+#mediamanager__page .filelist .thumbs li .filesize,
+#mediamanager__page .filelist .thumbs li .date {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90px;
+    white-space: nowrap;
+}
+#mediamanager__page .filelist .thumbs li .name {
+    padding: 5px 0;
+    font-weight: bold;
+}
+#mediamanager__page .filelist .thumbs li .date {
+    font-style: italic;
+    white-space: normal;
+}
+
+/* file list as rows */
+
+#mediamanager__page .filelist .rows li {
+    list-style: none;
+    display: block;
+    position: relative;
+    max-height: 50px;
+    margin: 0 0 3px 0;
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+}
+
+#mediamanager__page .filelist .rows li:nth-child(2n+1) {
+    background-color: #fff_neu;
+}
+
+#mediamanager__page .filelist .rows li dt {
+    float: left;
+    width: 10%;
+    height: 40px;
+    text-align: center;
+}
+[dir=rtl] #mediamanager__page .filelist .rows li dt {
+    float: right;
+}
+#mediamanager__page .filelist .rows li dt a {
+    width: 100px;
+    height: 40px;
+}
+
+#mediamanager__page .filelist .rows li dt a img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+#mediamanager__page .filelist .rows li .name,
+#mediamanager__page .filelist .rows li .size,
+#mediamanager__page .filelist .rows li .filesize,
+#mediamanager__page .filelist .rows li .date {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+    margin-left: 1%;
+    white-space: nowrap;
+}
+[dir=rtl] #mediamanager__page .filelist .rows li .name,
+[dir=rtl] #mediamanager__page .filelist .rows li .size,
+[dir=rtl] #mediamanager__page .filelist .rows li .filesize,
+[dir=rtl] #mediamanager__page .filelist .rows li .date {
+    float: right;
+    margin-left: 0;
+    margin-right: 1%;
+}
+
+#mediamanager__page .filelist .rows li .name {
+    width: 30%;
+    font-weight: bold;
+}
+#mediamanager__page .filelist .rows li .size,
+#mediamanager__page .filelist .rows li .filesize {
+    width: 15%;
+}
+#mediamanager__page .filelist .rows li .date {
+    width: 20%;
+    font-style: italic;
+    white-space: normal;
+}
+
+/* upload form */
+
+#mediamanager__page div.upload {
+    padding-bottom: 0.5em;
+}
+
+/*____________ file panel ____________*/
+
+#mediamanager__page .file ul.actions {
+    text-align: center;
+    margin: 0 0 5px;
+    padding: 0;
+    list-style: none;
+}
+#mediamanager__page .file ul.actions li {
+    display: inline;
+    margin: 0;
+}
+
+#mediamanager__page .file div.image {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#mediamanager__page .file div.image img {
+    width: 100%;
+}
+
+#mediamanager__page .file dl {
+    margin-bottom: 0;
+}
+#mediamanager__page .file dl dt {
+    font-weight: bold;
+    display: block;
+    background-color: #eee;
+}
+#mediamanager__page .file dl dd {
+    display: block;
+    background-color: #fff_neu;
+}
+
+
+/* file meta data edit form */
+
+#mediamanager__page form.meta div.row {
+    margin-bottom: 5px;
+}
+
+#mediamanager__page form.meta label span {
+    display: block;
+}
+
+#mediamanager__page form.meta input {
+    width: 50%;
+}
+
+#mediamanager__page form.meta button {
+    width: auto;
+}
+
+#mediamanager__page form.meta textarea.edit {
+    height: 6em;
+    width: 95%;
+    min-width: 95%;
+    max-width: 95%;
+}
+
+/* file revisions form */
+
+#mediamanager__page form.changes ul {
+    margin-left: 10px;
+    padding: 0;
+    list-style-type: none;
+}
+[dir=rtl] #mediamanager__page form.changes ul {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+#mediamanager__page form.changes ul li div.li div {
+    font-size: 90%;
+    color: #666;
+    padding-left: 18px;
+}
+[dir=rtl] #mediamanager__page form.changes ul li div.li div {
+    padding-left: 0;
+    padding-right: 18px;
+}
+#mediamanager__page form.changes ul li div.li input {
+    position: relative;
+    top: 1px;
+}
+
+/* file diff view */
+
+#mediamanager__diff table {
+    table-layout: fixed;
+    border-width: 0;
+}
+
+#mediamanager__diff td,
+#mediamanager__diff th {
+    width: 48%;
+    margin: 0 5px 10px 0;
+    padding: 0;
+    vertical-align: top;
+    text-align: left;
+    border-color: #fff;
+}
+[dir=rtl] #mediamanager__diff td,
+[dir=rtl] #mediamanager__diff th {
+    margin: 0 0 10px 5px;
+    text-align: right;
+}
+
+#mediamanager__diff th {
+    font-weight: normal;
+    background-color: #fff;
+    line-height: 1.2;
+}
+#mediamanager__diff th a {
+    font-weight: bold;
+}
+#mediamanager__diff th span {
+    font-size: 90%;
+}
+
+#mediamanager__diff dl dd strong{
+    background-color: #ff9;
+    color: #333;
+    font-weight: normal;
+}
+
+/* image diff views */
+
+#mediamanager__page .file form.diffView {
+    margin-bottom: 10px;
+    display: block;
+}
+
+#mediamanager__diff div.slider {
+    margin: 10px;
+    width: 95%;
+}
+
+#mediamanager__diff .imageDiff {
+    position: relative;
+}
+#mediamanager__diff .imageDiff .image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#mediamanager__diff .imageDiff.opacity .image2 {
+    opacity: 0.5;
+}
+
+#mediamanager__diff .imageDiff.portions .image2 {
+    border-right: 1px solid red;
+    overflow: hidden;
+}
+
+#mediamanager__diff .imageDiff.portions img {
+    float: left;
+}
+
+#mediamanager__diff .imageDiff img {
+    width: 100%;
+    max-width: none;
+}
+
+/**
+ * This file provides styles for the media manager popup
+ * (mediamanager.php).
+ */
+
+/*____________ structure ____________*/
+
+html.popup {
+    overflow: auto;
+}
+
+#media__manager {
+    height: 100%;
+    overflow: hidden;
+}
+
+#mediamgr__aside {
+    width: 30%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    border-right: 1px solid #ccc;
+}
+[dir=rtl] #mediamgr__aside {
+    left: auto;
+    right: 0;
+    border-right-width: 0;
+    border-left: 1px solid #ccc;
+}
+#mediamgr__aside .pad {
+    padding: .5em;
+}
+
+#mediamgr__content {
+    width: 69.7%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+}
+[dir=rtl] #mediamgr__content {
+    right: auto;
+    left: 0;
+}
+#mediamgr__content .pad {
+    padding: .5em;
+}
+
+#media__manager h1,
+#media__manager h2 {
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    padding-bottom: .2em;
+    border-bottom: 1px solid #ccc;
+}
+
+/* left side
+********************************************************************/
+
+/*____________ options ____________*/
+
+#media__opts {
+    margin-bottom: .5em;
+}
+
+#media__opts input {
+    margin-right: .3em;
+}
+[dir=rtl] #media__opts input {
+    margin-right: 0;
+    margin-left: .3em;
+}
+#media__opts label {
+}
+
+/*____________ tree ____________*/
+
+#media__tree ul {
+    padding-left: .2em;
+}
+[dir=rtl] #media__tree ul {
+    padding-left: 0;
+    padding-right: .2em;
+}
+#media__tree ul li {
+    clear: left;
+    list-style-type: none;
+    list-style-image: none;
+    margin-left: 0;
+}
+[dir=rtl] #media__tree ul li {
+    clear: right;
+    margin-right: 0;
+}
+#media__tree ul li img {
+    float: left;
+    padding: .5em .3em 0 0;
+}
+[dir=rtl] #media__tree ul li img {
+    float: right;
+    padding: .5em 0 0 .3em;
+}
+#media__tree ul li div.li {
+    display: inline;
+}
+#media__tree ul li li {
+    margin-left: 1.5em;
+}
+[dir=rtl] #media__tree ul li li {
+    margin-left: 0;
+    margin-right: 1.5em;
+}
+
+/* right side
+********************************************************************/
+
+/*____________ upload form ____________*/
+
+/* upload info */
+#media__content div.upload {
+    font-size: .9em;
+    margin-bottom: .5em;
+}
+
+#mediamanager__uploader {
+    margin-bottom: 1em;
+}
+#mediamanager__uploader p {
+    margin-bottom: .5em;
+}
+
+/*____________ file list ____________*/
+
+#media__content img.load {
+    margin: 1em auto;
+}
+
+#media__content .odd,
+#media__content .even {
+    padding: .5em;
+}
+#media__content .odd {
+    background-color: #eee;
+}
+#media__content .even {
+}
+/* highlight newly uploaded or edited file */
+#media__content #scroll__here {
+    border: 1px dashed #ccc;
+}
+
+/* link which inserts media file */
+#media__content a.mediafile {
+    margin-right: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+[dir=rtl] #media__content a.mediafile {
+    margin-right: 0;
+    margin-left: 1.5em;
+}
+#media__content span.info {
+}
+#media__content img.btn {
+    vertical-align: text-bottom;
+}
+
+/* info how to insert media, if JS disabled */
+#media__content div.example {
+    color: #666;
+    margin-left: 1em;
+}
+
+#media__content div.detail {
+    padding: .2em 0;
+}
+#media__content div.detail div.thumb {
+    float: left;
+    margin: 0 .5em 0 18px;
+}
+[dir=rtl] #media__content div.detail div.thumb {
+    float: right;
+    margin: 0 18px 0 .5em;
+}
+#media__content div.detail div.thumb a {
+    display: block;
+    cursor: pointer;
+}
+#media__content div.detail p {
+    margin-bottom: 0;
+}
+
+
+/*____________ media search ____________*/
+
+#dw__mediasearch {
+}
+#dw__mediasearch p {
+}
+#dw__mediasearch label {
+}
+#dw__mediasearch label span {
+}
+#dw__mediasearch input.edit {
+}
+#dw__mediasearch button {
+}
+
+
+/**
+ * This file provides the styles for general tabs.
+ */
+
+.dokuwiki .tabs > ul,
+.dokuwiki ul.tabs {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+/* border underneath */
+.dokuwiki .tabs > ul:after,
+.dokuwiki ul.tabs:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid @ini_border;
+}
+
+.dokuwiki .tabs > ul li,
+.dokuwiki ul.tabs li {
+    float: left;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+[dir=rtl] .dokuwiki .tabs > ul li,
+[dir=rtl] .dokuwiki ul.tabs li {
+    float: right;
+}
+
+.dokuwiki .tabs > ul li a,
+.dokuwiki ul.tabs li strong,
+.dokuwiki ul.tabs li a {
+    display: inline-block;
+    padding: .3em .8em;
+    margin: 0 0 0 .3em;
+    background-color: @ini_background_neu;
+    color: @ini_text;
+    border: 1px solid @ini_border;
+    border-radius: .5em .5em 0 0;
+    position: relative;
+    z-index: 0;
+}
+[dir=rtl] .dokuwiki .tabs > ul li a,
+[dir=rtl] .dokuwiki ul.tabs li strong,
+[dir=rtl] .dokuwiki ul.tabs li a {
+    margin: 0 .3em 0 0;
+}
+
+.dokuwiki ul.tabs li strong {
+    font-weight: normal;
+}
+
+.dokuwiki ul.tabs li a:link,
+.dokuwiki ul.tabs li a:visited {
+}
+.dokuwiki .tabs > ul li a:hover,
+.dokuwiki .tabs > ul li a:active,
+.dokuwiki .tabs > ul li a:focus,
+.dokuwiki .tabs > ul li .curid a,
+.dokuwiki .tabs > ul .active a,
+.dokuwiki ul.tabs li a:hover,
+.dokuwiki ul.tabs li a:active,
+.dokuwiki ul.tabs li a:focus,
+.dokuwiki ul.tabs li.active a,
+.dokuwiki ul.tabs li strong {
+    background-color: @ini_background_alt;
+    color: @ini_text;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.dokuwiki .tabs > ul li .curid a,
+.dokuwiki .tabs > ul li .active a,
+.dokuwiki .tabs > ul li .active a,
+.dokuwiki ul.tabs li.active a,
+.dokuwiki ul.tabs li strong {
+    z-index: 2;
+    border-bottom-color: @ini_background_alt;
+}
