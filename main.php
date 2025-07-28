@@ -1,10 +1,10 @@
 <?php
 /**
- * DokuWiki Starter Template
+ * DokuWiki Bulma Template
  *
- * @link     http://dokuwiki.org/template:starter
- * @author   Anika Henke <anika@selfthinker.org>
- * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @link     http://dokuwiki.org/template:bulma
+ * @author   Gilberto Miralla-Flores <miralgj@gmail.com>
+ * @license  MIT (https://opensource.org/license/MIT)
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
@@ -82,9 +82,9 @@ $sidebarElement = tpl_getConf('sidebarIsNav') ? 'nav' : 'aside';
                 <?php } ?>
 
                 <!-- CONTENT -->
-                <div id="dokuwiki__content" class="content pl-4 pr-4">
-                    <?php _tpl_content(false) ?>
-                </div><!-- /content -->
+                <main id="dokuwiki__content" class="content pl-4 pr-4">
+                    <article><?php _tpl_content(false) ?></article>
+                </main><!-- /content -->
             </div><!-- /content column -->
 
             <div class="bulma-toc-pagetools column is-2">
@@ -103,7 +103,8 @@ $sidebarElement = tpl_getConf('sidebarIsNav') ? 'nav' : 'aside';
 
     </div><!-- /dokuwiki__top -->
     
-    <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    </div>
+    <footer>
+        <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
+    </footer>
 </body>
 </html>
