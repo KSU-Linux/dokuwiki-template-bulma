@@ -103,8 +103,6 @@ $sidebarElement = tpl_getConf('sidebarIsNav') ? 'nav' : 'aside';
 
     </div><!-- /dokuwiki__top -->
     
-    <footer>
-        <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    </footer>
+    <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 </body>
 </html>
